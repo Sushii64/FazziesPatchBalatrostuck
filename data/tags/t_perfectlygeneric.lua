@@ -1,13 +1,13 @@
+--TODO: booster pack thang
 function Balatrostuck.INIT.Tags.t_perfectlygeneric()
     SMODS.Tag{
         key = "perfecltygeneric",
-        config = {type = "using_consumeable"},
+        config = {type = "eval"},
         loc_txt = {
             ['name'] = 'Perfectly Generic Tag',
             ['text'] = {
-                [1] = 'Creates a paradox copy',
-                [2] = 'Of your next used',
-                [3] = 'Consumable'         
+                "Create a {C:paradox}Paradox{} copy",
+                "of the {C:attention}next{} consumable"
             }
         },
         pos = {
@@ -16,19 +16,15 @@ function Balatrostuck.INIT.Tags.t_perfectlygeneric()
         },
         atlas = 'HomestuckTags',
         loc_vars = function(self, info_queue, card)
-            info_queue[#info_queue + 1] = G.P_CENTERS['c_fool']
             art_credit('akai', info_queue)
             -- PUT RELEVENT LOC VARS HERE WHEN YOU GET TO REWORDING THIS!!!!!!! - Delirium
             return {true}
         end,
         apply = function(self, tag, context)
-            if context.using_consumeable and not (context.consumeable.ability.set == 'Aspect') then
-                tag:yep("Ify!",G.C.Green,
-                function()
-                    SMODS.add_card({key = context.consumeable.config.center.key,edition = 'e_bstuck_paradox'})
-                    return true
-                end)
+            if context.type == 'using_consumeable' then
+                SMODS.add_card({key = context.consumeable.config.center.key,edition = 'e_bstuck_paradox'})
                 tag.triggered = true
+                return true
             end
         end
     }
