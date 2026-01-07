@@ -2,7 +2,7 @@
 	"id": "balatrostuck",
 	"name": "Balatrostuck",
 	"display_name": "Balatrostuck",
-	"author": ["Akai","Yokcos", "cozyGalvinism","Delirium"],
+	"author": ["Lime","Yokcos", "cozyGalvinism","Delirium"],
 	"description": "Homestuck Jokers! Why not!",
 	"prefix": "bstuck",
 	"main_file": "main.lua",

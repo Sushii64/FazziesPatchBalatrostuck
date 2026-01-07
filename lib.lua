@@ -161,8 +161,8 @@ end
 
 G.bstuck_team = {
     akai = {
-        name = "Akai",
-        color = HEX("1793D1"),
+        name = "Lime",
+        color = HEX("8CCC00"),
         depts = {
             "Art",
             "Design",
