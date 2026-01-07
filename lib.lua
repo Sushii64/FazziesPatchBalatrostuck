@@ -244,7 +244,7 @@ G.bstuck_team = {
     },
     penny = {
         name = "Penny",
-        color = HEX('416600'),
+        color = HEX('9a5f00'),
         depts = {"Art"}
     },
 
