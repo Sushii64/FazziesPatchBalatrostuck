@@ -14,19 +14,38 @@ function Card:calculate_joker(context)
 end
 
 
-local generate_UIbox_ability_tableref = Card.generate_UIbox_ability_table
-function Card:generate_UIbox_ability_table()
-    local full_UI_table = generate_UIbox_ability_tableref(self)
-
+local generate_UIBox_ability_tableref = Card.generate_UIBox_ability_table
+function Card:generate_UIBox_ability_table(vars_only)
+    local full_UI_table = generate_UIBox_ability_tableref(self,vars_only)
     if self.playing_card then
         local zodiac = rank_to_zodiac(self)
         if zodiac and G.GAME.BALATROSTUCK.zodiac_levels[zodiac] > 0 then
-            generate_card_ui({key = zodiac, set = "zodiacui"}, full_UI_table)
+            --generate_card_ui({type = 'descriptions',key = zodiac, set = "zodiacui"}, full_UI_table)
+            full_UI_table.info[#full_UI_table.info+1] = {}
+            local desc_nodes = full_UI_table.info[#full_UI_table.info]
+            desc_nodes.name = zodiac
+            localize{type = 'descriptions',set="zodiacui", key = zodiac,vars=get_zodiac_uibox_vars(zodiac),  nodes = desc_nodes} --vars = specific_vars or _c.vars}
         end
     end
 
     return full_UI_table
 end
+local CardDrawRef = Card.draw
+function Card:draw(layer)
+
+    local ret = CardDrawRef(self,layer)
+    if (self.playing_card or self.params.playing_card) and self.sprite_facing == 'front' then
+        local zodiac = rank_to_zodiac(self)
+        if zodiac and G.GAME.BALATROSTUCK.zodiac_levels[zodiac] > 0 then
+            get_bstuck_zodiac_stamps()
+           Balatrostuck.shared_zodiac_stamps[zodiac].role.draw_major = self
+           Balatrostuck.shared_zodiac_stamps[zodiac]:draw_shader('dissolve', nil, nil, nil, self.children.center)
+           Balatrostuck.shared_zodiac_stamps[zodiac]:draw_shader('voucher', nil, self.ARGS.send_to_shader, nil, self.children.center)
+        end
+    end
+    return ret
+end
+
 
 local keypressedhook = love.keypressed
 function love.keypressed(key)
@@ -490,4 +509,16 @@ function SMODS.showman(card_key)
         if card_key == k then return false end
     end
     smods_showman(card_key)
+end
+
+--attempt to fix smods crash on load if theres an invalid cardarea (god knows where the invalid cardarea came from)
+--this fix was fine in smods beta 1016, if it has since been updated and this is causing problems, removing it is probably fine
+smods_check_looping_context = SMODS.check_looping_context
+function SMODS.check_looping_context(eval_object)
+    if eval_object == "\"MANUAL_REPLACE\"" then
+         eval_object = nil
+         return true 
+
+    end
+    smods_check_looping_context(eval_object)
 end

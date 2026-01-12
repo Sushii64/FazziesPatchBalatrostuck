@@ -54,15 +54,50 @@ function Balatrostuck.INIT.Zodiacs.c_zodiac_ophiuchus()
                             local _card = pseudorandom_element(possible_choices,pseudoseed('Looking for me?  O  '))
                             _card.alreadyDead = true
                             G.E_MANAGER:add_event(Event({func = function()
-                                G.hand:remove_card(_card)
                                 play_sound('bstuck_HomestuckParadox',0.7)
                                 _card:juice_up()
                                 _card:set_edition('e_bstuck_paradox',true,true)
-                                G.hand:emplace(_card)
                                 _card.alreadyDead = false
-                                G.hand:sort()
                                 return true
                             end}))
+                            SMODS.calculate_effect({xmult = 1.25 ^ self:level(_card)}, _card)
+
+
+                            --calculate retriggers due to mime or other effects
+                            --basically reimplements seals and retriggers
+                            --checks for joker effects & seals that retrigger cards held in hand
+                            --if a zodiac or slab does this, it will need to be added here.
+                            --it should probably be its own function
+                            local _rep_context = {}
+                            SMODS.calculate_context({repetition = true, cardarea = G.hand, card_effects = {{1,2},2,3}},_rep_context) --dummy card effect, does nothing but needs this structure
+ 
+                            
+
+                            local _repjokers = {}
+                            for _, value in pairs(_rep_context) do
+                                if value.jokers then
+                                    if value.jokers.repetitions then
+                                        for i=1, value.jokers.repetitions do
+                                            table.insert(_repjokers,value.jokers.card)
+                                        end
+                                    end
+                                elseif value.seals then
+                                    if value.seals.card == _card then
+                                        if value.seals.repetitions then
+                                            for i=1, value.seals.repetitions do
+                                                table.insert(_repjokers,_card) --"_repjokers is just which cards to say "Again!" on.
+                                            end
+                                        end
+                                    end
+                                end
+                                
+                            end
+                            for i=1, #_repjokers do
+                                card_eval_status_text(_repjokers[i], 'extra', nil, nil, nil, {message = localize('k_again_ex')})
+                                SMODS.calculate_effect({xmult = 1.25 ^ self:level(_card)}, _card)
+                                delay(0.3)
+                            end
+                            
                         end
                     end
                 }

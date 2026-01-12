@@ -2,15 +2,15 @@
 	"id": "balatrostuck",
 	"name": "Balatrostuck",
 	"display_name": "Balatrostuck",
-	"author": ["Akai","Yokcos", "cozyGalvinism","Delirium"],
-	"description": "Homestuck Jokers! Why not!",
+	"author": ["Lime","campfireCollective", "Fazzie"],
+	"description": "It is your thirteenth birthday, and as with all twelve preceding it, something feels missing from your life. The game presently eluding you is only the latest sleight of hand in the repertoire of an unseen riddler, one to engender a sense not of mirth, but of lack. His coarse schemes are those less of a prankster than a common pickpocket. His riddle is Absence itself. It is a mystery dispersing altogether, like the moon's faint reflection, with even one pebble of inquiry dropped in its black well. You have a feeling it's going to be a long day.",
 	"prefix": "bstuck",
 	"main_file": "main.lua",
 	"priority": 100,
 	"badge_colour": "4CE24E",
 	"badge_text_colour": "ffffff ",
-	"version": "0.4.132-alpha",
+	"version": "1.0.4",
 	"dependencies": [
-		"Steamodded (>=1.0.0~ALPHA-1216a)"
+		"Steamodded (>=1.0.0~BETA-1016c)"
 	]
 }

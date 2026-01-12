@@ -10,7 +10,7 @@ SMODS.current_mod.extra_tabs = function()
                 BSUI.Modules.Credits.Header(G.C.MIND, 'Direction', scale),
                 BSUI.Row( BSUI.Config.Basic, {BSUI.Pad(0.0, 0.12)}),
                 BSUI.Row( BSUI.Config.Basic, {
-                    BSUI.Col( BSUI.Config.Basic, {BSUI.Modules.Credits.Name('Akai', scale)}),
+                    BSUI.Col( BSUI.Config.Basic, {BSUI.Modules.Credits.Name('Lime', scale)}),
                     BSUI.Col( BSUI.Config.Basic, {BSUI.Pad(0.5, 0.0)}),
                     BSUI.Col( BSUI.Config.Basic, {BSUI.Modules.Credits.Name('Fazzie', scale)})
                 }),
@@ -68,7 +68,7 @@ SMODS.current_mod.extra_tabs = function()
                 BSUI.Modules.Credits.Header(G.C.LIGHT, 'Artwork', scale),
                 BSUI.Row( BSUI.Config.Basic, {BSUI.Pad(0.0, 0.12)}),
                 BSUI.Row( BSUI.Config.Basic, {
-                    BSUI.Modules.Credits.Names({'Akai', 'Yokcos',}, scale),
+                    BSUI.Modules.Credits.Names({'Lime', 'Yokcos',}, scale),
                     BSUI.Col( BSUI.Config.Basic, {BSUI.Pad(0.2, 0.0)}),
                     BSUI.Modules.Credits.Names({'garb', 'Baqly', 'bconlon'}, scale),
                     BSUI.Col( BSUI.Config.Basic, {BSUI.Pad(0.2, 0.0)}),
@@ -87,7 +87,7 @@ SMODS.current_mod.extra_tabs = function()
                 BSUI.Modules.Credits.Header(G.C.BREATH, 'Programming', scale),
                 BSUI.Row( BSUI.Config.Basic, {BSUI.Pad(0.0, 0.12)}),
                 BSUI.Row( BSUI.Config.Basic, {
-                    BSUI.Modules.Credits.Names({'Akai', 'garb',}, scale),
+                    BSUI.Modules.Credits.Names({'Lime', 'garb',}, scale),
                     BSUI.Col( BSUI.Config.Basic, {BSUI.Pad(0.2, 0.0)}),
                     BSUI.Modules.Credits.Names({ 'Victin', 'bconlon'}, scale),
                     BSUI.Col( BSUI.Config.Basic, {BSUI.Pad(0.2, 0.0)}),

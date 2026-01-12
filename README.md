@@ -53,9 +53,9 @@ Unlike planets the Zodiac cards don't directly increase their values, instead gr
 
 ## Credits
 
-- **Direction:** Akai, Fazzie, CampfireCollective
-- **Artwork:** Akai, garb, Lyman, Baqly, Penny, Yokcos, bconlon, Delirium, SagaciousCejai
-- **Programming:** Akai, Victin, Yokcos, garb, bconlon, Delirium, CampfireCollective, lord-ruby, cozyGalvanism, dangerbites, lyra
+- **Direction:** Lime, Fazzie, CampfireCollective
+- **Artwork:** Lime, garb, Lyman, Baqly, Penny, Yokcos, bconlon, Delirium, SagaciousCejai
+- **Programming:** Lime, Victin, Yokcos, garb, bconlon, Delirium, CampfireCollective, lord-ruby, cozyGalvanism, dangerbites, lyra
 - **Playtesting:** conchors, Penny, Chloe (Teki), Victin, Snowroom, pescia, SagaciousCejai
 - **Music/SFX:** dangerbites, Delirium, JulianMOCs
 - **SAHCon Trailer:** shmig, sinewavey, Knightmare
@@ -73,10 +73,10 @@ Unlike planets the Zodiac cards don't directly increase their values, instead gr
 
 These art credits could not be displayed in-game due to technical reasons.
 - Title Screen music - JulianMOCs
-- All 4 new decks - Akai
-- Felt Seal and Paradox Edition - Akai
-- Jail Key Spectral - Akai
-- Both regular Aspect packs, Zodiac pack, Zodiac Jumbo - Akai
+- All 4 new decks - Lime
+- Felt Seal and Paradox Edition - Lime
+- Jail Key Spectral - Lime
+- Both regular Aspect packs, Zodiac pack, Zodiac Jumbo - Lime
 - Zodiac alternative art pack - Cejai
 - Aspect Jumbo pack - Garb
 - SBURB Pack - Delirium
