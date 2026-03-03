@@ -122,7 +122,7 @@ local spectral_list = {
 }
 
 local deck_list = {
-    'dersite','prospitan','alternian','frog'
+    'dersite','prospitan','sylladeck','genericdeck','alternian','frog'
 }
 
 batch_load("jokers")
