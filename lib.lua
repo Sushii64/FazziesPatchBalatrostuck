@@ -173,7 +173,7 @@ G.bstuck_team = {
 
     fazzie = {
         name = "Fazzie",
-        color = HEX('323232'), -- placeholder
+        color = HEX('DB00B4'),
         depts = {
             "Direction",
             "Stagehand",
