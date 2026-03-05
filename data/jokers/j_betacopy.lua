@@ -42,7 +42,8 @@ function Balatrostuck.INIT.Jokers.j_betacopy()
             G.GAME.starting_params.ante_scaling = G.GAME.starting_params.ante_scaling / card.ability.extra.ante_scaling
         end,
         calculate = function(self,card,context)
-            if context.end_of_round and context.cardarea == G.jokers then
+            if context.end_of_round and context.cardarea == G.jokers 
+            and G.GAME.round_resets.ante ~= G.GAME.win_ante then
                 G.E_MANAGER:add_event(Event({
                     func = (function()
                         add_tag(Tag('tag_bstuck_sburb'))
