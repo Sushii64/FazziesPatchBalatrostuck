@@ -3,6 +3,12 @@
 
 ---
 
+This branch was created as an emergency patch for Balatrostuck, due to production troubles with 1.1. It was made by an ex-team member and aims to fixes some of the larger issues on the game, alongside adding 2 extra decks due to 1.0 releasing with not enough of those.
+
+All the art and design, and most of the code by Fazzie, and some with some code grandfathered in by Lyra
+
+---
+
 Balatrostuck is a Homestuck-themed mod for the popular poker roguelike Balatro adding tons of new content to the game.
 
 It is your thirteenth birthday, and as with all twelve preceding it, something feels missing from your life. The game presently eluding you is only the latest sleight of hand in the repertoire of an unseen riddler, one to engender a sense not of mirth, but of lack. His coarse schemes are those less of a prankster than a common pickpocket. His riddle is Absence itself. It is a mystery dispersing altogether, like the moon's faint reflection, with even one pebble of inquiry dropped in its black well. It is the most diabolical riddle of all.
