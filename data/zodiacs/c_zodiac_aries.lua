@@ -8,8 +8,8 @@ function Balatrostuck.INIT.Zodiacs.c_zodiac_aries()
             name = 'Aries',
             text = {
                 '{C:attention}Aces{} gain {X:mult,C:white}X#1#{} Mult for',
-                'each {C:attention}Ace discarded{} this round',
-                'or currently in your {C:attention}deck'
+                'each {C:attention}Ace discarded{}',
+                ' this round'
             }
         },
         pos = {
@@ -48,11 +48,6 @@ function Balatrostuck.INIT.Zodiacs.c_zodiac_aries()
             if context.individual and context.cardarea == G.play and context.other_card:get_id() == self.ability.rank then
                 context.other_card.ignore_aries = true
                 local scottthewoz = 0
-                
-                
-                for k,v in pairs(G.deck.cards) do
-                    if v:get_id() == self.ability.rank then scottthewoz = scottthewoz + 1 end
-                end
 
                 for k,v in pairs(G.discard.cards) do
                     if v:get_id() == self.ability.rank and not v.ignore_aries then scottthewoz = scottthewoz + 1 end
