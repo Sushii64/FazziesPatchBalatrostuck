@@ -4,8 +4,8 @@ function Balatrostuck.INIT.Decks.b_sylladeck()
         loc_txt = {
             name = "Sylladeck",
             text = {
-                'Visit a shop',
-                'every time you skip'
+                'Visit the {C:attention}Shop',
+                'when you {C:attention}skip'
             }
         },
         config = {        },
