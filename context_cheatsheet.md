@@ -59,3 +59,8 @@ This value has two prominent uses in specifying where a Joker's effect takes pla
 
 ---
 `individual` : Exists specifically to set up logic to be executed on individual basis on contexts like `other_card` - because of that the individual context will error if it's used in a context combination that doesn't have a finite iterator (like `other_card` does)
+
+
+
+
+what the fuck is this --sushii64
