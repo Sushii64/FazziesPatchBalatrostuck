@@ -15,7 +15,7 @@ function Balatrostuck.INIT.Tags.t_consort()
             x = 2,
             y = 1
         },
-        atlas = 'HomestuckTags',
+        -- atlas = 'HomestuckTags',
         
         in_pool = function(self)
             return (G.GAME.round_resets.ante > 1)
