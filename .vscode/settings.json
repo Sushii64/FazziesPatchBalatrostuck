@@ -1,4 +1,8 @@
 {
+    "Lua.workspace.library": [
+        "/home/katie/projects/modding/balatro/Balatro/Mods/smods/", 
+        "/home/katie/projects/modding/balatro/Balatro/Mods/lovely/dump/"
+    ],
     "Lua.diagnostics.globals": [
         "SMODS",
         "bitoper",
@@ -10,6 +14,10 @@
         "Game",
         "factorial",
         "context",
-        "art_credit"
+        "art_credit",
+        "love"
+    ],
+    "Lua.diagnostics.disable": [
+        "duplicate-set-field"
     ]
 }

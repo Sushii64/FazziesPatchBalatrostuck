@@ -37,13 +37,15 @@ function Balatrostuck.INIT.Aspects.c_aspect_mind()
         },
         config = {},
         name = 'Aspect of Mind',
-        apply = function(self, slab, context) 
-            if context.tag then
-                if context.tag.ability and context.tag.ability.orbital_hand and context.tag.ability.orbital_hand ~= "[poker hand]" then
-                    G.orbital_hand = context.tag.ability.orbital_hand
+        apply = function(self, slab, context)
+            if context.tag_added and not context.tag_added.from_mind then
+                if context.tag_added.ability and context.tag_added.ability.orbital_hand and context.tag_added.ability.orbital_hand ~= "[poker hand]" then
+                    G.orbital_hand = context.tag_added.ability.orbital_hand
                 end
-                for i = 1, slab:level() do
-                    add_tag(Tag(context.tag.key),true)
+                for _ = 1, slab:level() do
+                    local _tag = Tag(context.tag_added.key)
+                    _tag.from_mind = true
+                    add_tag(_tag,true)
                 end
             end
         end
