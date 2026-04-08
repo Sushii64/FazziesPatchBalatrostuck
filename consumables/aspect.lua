@@ -58,9 +58,9 @@ function Balatrostuck.Aspect:get_level_color()
 end
 
 function Balatrostuck.Aspect:get_formula(level)
-  if self.name == 'Blood' then 
+  if self.name == 'Blood' then
     return {level*2}
-  
+
   elseif self.name == 'Breath' or
          self.name == 'Void' or
          self.name == 'Heart' or
@@ -72,7 +72,7 @@ function Balatrostuck.Aspect:get_formula(level)
 
   elseif self.name == 'Doom' then
     return {
-      summation(level) + get_grollars(), 
+      summation(level) + get_grollars(),
       (summation(level) + get_grollars())~=1 and 's' or '',
       level+2
     }
@@ -80,11 +80,11 @@ function Balatrostuck.Aspect:get_formula(level)
   elseif self.name == 'Space' or
          self.name == 'Time' then
     return {
-      summation(level), 
+      summation(level),
       summation(level)~=1 and 's' or ''
     }
 
-  elseif self.name == 'Life' then 
+  elseif self.name == 'Life' then
     return {level*2, 2}
 
   elseif self.name == 'Light' then
@@ -94,13 +94,13 @@ function Balatrostuck.Aspect:get_formula(level)
     -- positive xmult, negative xmult, netxmult
     local max_discards = G.GAME.round_resets.discards + G.GAME.round_bonus.discards
     local max_hands = G.GAME.round_resets.hands + G.GAME.round_bonus.next_hands
-    
+
     return {1 + (level * 0.5),1 / (1 + (level / 2)),(1 + (level * 0.5))^(G.GAME.current_round.discards_left - (G.GAME.current_round.hands_left-1))}
-  elseif self.name == 'Piss' then 
+  elseif self.name == 'Piss' then
     return {summation(level+1)}
 
   else return {}
-  
+
   end
 end
 
@@ -147,8 +147,8 @@ end
 function Slab:calculate(_context,trigger)
   if not self.triggered then
 
-    
-    
+
+
     local obj = Balatrostuck.Slabs[self.key]
     local res
     if obj and obj.apply and type(obj.apply) == 'function' then
@@ -196,7 +196,7 @@ function SlabIcon:init(X,Y,W,H)
   self.shadow_height = 0
   self:update_atlas()
 
-  if getmetatable(self) == SlabIcon then 
+  if getmetatable(self) == SlabIcon then
     table.insert(G.I.CARD, self)
   end
 end
@@ -207,7 +207,7 @@ end
 
 function SlabIcon:get_uibox_table(tag_sprite)
   local aspect = G.GAME.BALATROSTUCK.current_aspect or nil
-  if aspect then 
+  if aspect then
 
     -- Get the aspect card from the centers
     local aspect_card = G.P_CENTERS['c_bstuck_'..aspect]
@@ -217,16 +217,16 @@ function SlabIcon:get_uibox_table(tag_sprite)
     local card_ui = generate_card_ui(
       aspect_card,
       nil, aspect_card:get_formula(aspect_card:level()-1))
-      
+
     local nodes = {}
     local ret = {}
 
     -- use localization trick to recalculate the UI properly
     localize{
-        type = 'descriptions', 
-        set = 'Aspect', 
-        key = 'c_bstuck_'..aspect, 
-        vars = aspect_card:get_formula(aspect_card:level()), 
+        type = 'descriptions',
+        set = 'Aspect',
+        key = 'c_bstuck_'..aspect,
+        vars = aspect_card:get_formula(aspect_card:level()),
         nodes = ret
     }
 
@@ -241,7 +241,7 @@ function SlabIcon:get_uibox_table(tag_sprite)
     -- add the last element of the main card ui - not sure why 
     -- but this prevents a crash from the Balalala parser
     nodes[#nodes+1] = (card_ui.main)[#table]
-    
+
     -- replace main nodes with recalculated nodes
     card_ui.main = nodes
 
@@ -270,7 +270,7 @@ end
 
 
 function SlabIcon:hover()
-  if not G.CONTROLLER.dragging.target or G.CONTROLLER.using_touch then 
+  if not G.CONTROLLER.dragging.target or G.CONTROLLER.using_touch then
     if not self.hovering and self.states.visible then
       self.hovering = true
       play_sound('paper1', math.random()*0.1 + 0.55, 0.42)
@@ -306,12 +306,12 @@ function SlabIcon:draw()
 
 
   self.children.sprite:draw_shader('dissolve', 0.05)
-  self.children.sprite:draw_shader('dissolve')    
+  self.children.sprite:draw_shader('dissolve')
 
 
   add_to_drawhash(self)
   self:draw_boundingrect()
-end  
+end
 
 
 function Slab:level(default)
@@ -384,7 +384,7 @@ Balatrostuck.Slab = SMODS.GameObject:extend{
   -- apply like a tag
   apply = function(self, context) end,
   generate_ui = function(self, info_queue, card, desc_nodes, specific_vars, full_UI_table)
-  
+
   end
 }
 
@@ -407,7 +407,7 @@ function add_slab(_slab,amount)
     }))
     return
   end
-  
+
   G.E_MANAGER:add_event(Event({
     func = function()
       G.ui_slab:update_atlas()

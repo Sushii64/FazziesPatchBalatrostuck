@@ -55,7 +55,7 @@ function Balatrostuck.INIT.Jokers.j_vodkamutini()
                     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
                     if G.jokers.config.card_limit - #G.jokers.cards > 0 then
                         if _card.config.center.key ~= "j_bstuck_vodkamutini" then
-                            pCard = copy_card(_card, nil, nil, true, true)
+                            pCard = copy_card(_card, nil, nil, false, true)
                             pCard:add_to_deck()
                             G.jokers:emplace(pCard)
                             play_sound('bstuck_HomestuckMeow', 1 + math.random()*0.5, 0.4)
@@ -64,7 +64,9 @@ function Balatrostuck.INIT.Jokers.j_vodkamutini()
                         end
                     end
                     return true end }))
-                else 
+                elseif _card.config.center.set == "Edition" then
+                    -- do literally nothing
+                else
                     card_eval_status_text(card, 'extra', nil, nil, nil, {message = "Cloned!"})
                     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.05, func = function()
                     pCard = copy_card(_card, nil, nil, G.playing_card, true)

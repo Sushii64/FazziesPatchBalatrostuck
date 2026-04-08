@@ -40,7 +40,7 @@ function Balatrostuck.INIT.Spectrals.c_spectral_jailkey()
                 end
             else
                 doublename = 'Unselected'
-                local colour = G.C.GREY
+                colour = G.C.GREY
             end
 
             if doublekey then
@@ -96,9 +96,10 @@ function Balatrostuck.INIT.Spectrals.c_spectral_jailkey()
                     if _card.ability.name == 'Glass Card' then 
                         _card:shatter()
                     else
-                        _card:start_dissolve(nil, i == #G.hand.highlighted)
+                        _card:start_dissolve()
+                        -- _card:start_dissolve(nil, i == #G.hand.highlighted)
                     end
-                    return true 
+                    return true
             end }))
             delay(0.2)
         end

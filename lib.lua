@@ -52,7 +52,7 @@ function create_act_complete_alert(_key, _act, _last)
     if _smods_atlas then
         _atlas = G.ASSET_ATLAS[_smods_atlas] or _atlas
     end
-     
+
     local subtext = "End of Act ".._act
     local maintext = _last and "All Jokers Unlocked!" or "New Jokers Unlocked!"
     local t_s = Sprite(0,0,1.5*(_atlas.px/_atlas.py),1.5,_atlas, _c and _c.pos or {x=3, y=0})

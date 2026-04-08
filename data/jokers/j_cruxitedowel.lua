@@ -1,5 +1,5 @@
 -- DONE: This joker doesn't need any more work unless something comes up
-function Balatrostuck.INIT.Jokers.j_cruxitedowel() 
+function Balatrostuck.INIT.Jokers.j_cruxitedowel()
     SMODS.Joker{
         name = "Cruxite Dowel",
         key = "cruxitedowel",
@@ -37,7 +37,7 @@ function Balatrostuck.INIT.Jokers.j_cruxitedowel()
         atlas = 'HomestuckJokers',
         calculate = function(self, card, context)
             if context.using_consumeable then
-                local _card = context.consumeable
+                local _card = context.consumeable or {}
                 local _pool = G.P_CENTER_POOLS[_card.config.center.set]
                 local tarot_pool = G.P_CENTER_POOLS["Tarot"]
                 local new_tarot = "c_fool"
@@ -48,14 +48,14 @@ function Balatrostuck.INIT.Jokers.j_cruxitedowel()
                     if not card.ability.extra.first_consum then card.ability.extra.first_consum = _card.config.center.key end
 
                     for i = 1, table_length(_pool) do
-                        if _pool[i].key == _card.config.center.key then 
+                        if _pool[i].key == _card.config.center.key then
                             card.ability.extra.index[#card.ability.extra.index+1] = i
                             break
                         end
                     end
-    
-                    if #card.ability.extra.index == 2 then 
-                        alchemy = math.max(1, math.mod( bit.bor( math.abs(card.ability.extra.index[1]-card.ability.extra.index[2]), bit.lshift(card.ability.extra.index[1]+card.ability.extra.index[2], 21)) , 22 )) 
+
+                    if #card.ability.extra.index == 2 then
+                        alchemy = math.max(1, math.mod( bit.bor( math.abs(card.ability.extra.index[1]-card.ability.extra.index[2]), bit.lshift(card.ability.extra.index[1]+card.ability.extra.index[2], 21)) , 22 ))
                         new_tarot = tarot_pool[alchemy].key
                         G.E_MANAGER:add_event(Event({
                             func = function()
@@ -76,7 +76,7 @@ function Balatrostuck.INIT.Jokers.j_cruxitedowel()
                     end
                 else
                     card.ability.extra.tildeath = card.ability.extra.tildeath-1
-                    if card.ability.extra.tildeath == 0 then card:start_dissolve() end    
+                    if card.ability.extra.tildeath == 0 then card:start_dissolve() end
                 end
             end
         end
